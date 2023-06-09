@@ -1,22 +1,24 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   const items = ["New York", "Tokyo", "Osaka", "Dhaka"];
 
-  //event handler
-  // for typeScript we need to specify the type of the event
-  const handelClick = (event: MouseEvent) => console.log(event);
+  let [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>Lists</h1>
       <ul className="list-group">
         {items.map((item, index) => (
           <li
-            className="list-group-item"
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             key={index}
-            //onClick={(event) => console.log(event, item, index)}
-            onClick={handelClick}
+            //onClick={(event) => console.log(event)}
+            onClick={() => setSelectedIndex(index)}
           >
             {item}
           </li>
