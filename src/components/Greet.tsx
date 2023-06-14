@@ -1,14 +1,21 @@
 // giving type to the props
 type GreetType = {
-  name: string;
-};
+  name: string
+  messageCount?: number
+  isLoggedIn: boolean
+}
 
-const Greet = (props: GreetType) => {
+const Greet = ({ name, messageCount = 0, isLoggedIn }: GreetType) => {
   return (
     <div>
-      <h2>Hello, {[props.name]}</h2>
-    </div>
-  );
-};
+      {isLoggedIn ? <h2>Hello, {name}</h2> : <h2>Hello, Guest</h2>}
 
-export default Greet;
+      <p>Number of message : {messageCount}</p>
+      <p>User logged in: {isLoggedIn}</p>
+
+      <h4>List of Persons:</h4>
+    </div>
+  )
+}
+
+export default Greet
