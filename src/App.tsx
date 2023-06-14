@@ -10,7 +10,7 @@ function App() {
           console.log('btn clicked', event, id)
         }}
       />
-      <Input value="Hi" handleChange={(e) => {}} />
+      <Input value="Hello" handleChange={(e) => {}} />
     </div>
   )
 }

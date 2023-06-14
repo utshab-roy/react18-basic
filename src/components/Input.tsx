@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type InputProps = {
   value: string
@@ -6,6 +6,10 @@ type InputProps = {
 }
 const Input = (props: InputProps) => {
   const [name, setName] = useState('')
+
+  useEffect(() => {
+    setName(props.value)
+  }, [])
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
